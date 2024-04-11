@@ -6,6 +6,7 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
+
     private void Awake()
     {
         // Reference Rigidbody2D Component and animator Component
@@ -18,13 +19,15 @@ public class playerMovement : MonoBehaviour
         if (body != null)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y); // Transforms on X axis
 
             // flips player when moving right or left
             if (horizontalInput > 0.01f)
-                transform.localScale = new Vector3(0.65f, 0.65f, 0.65f);
+                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             else if (horizontalInput < -0.01f)
-                transform.localScale = new Vector3(-0.65f, 0.65f, 0.65f);
+                transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
 
             if (Input.GetKey(KeyCode.Space) && grounded)
                 Jump();
@@ -37,7 +40,7 @@ public class playerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x, speed / 2); // Transforms on Y axis
+        body.velocity = new Vector2(body.velocity.x, speed / 1.25f); // Transforms on Y axis
         anim.SetTrigger("Jump");
         grounded = false;
     }
