@@ -19,9 +19,11 @@ public class playerMovement : MonoBehaviour
         if (body != null)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            bool isPressingS = Input.GetAxis("Vertical") < -0.1f;
+            bool isMoving = horizontalInput > 0.1f || horizontalInput < 0.1f; // Check if moving left / right
+            bool isSliding = isMoving && isPressingS;
 
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y); // Transforms on X axis
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             // flips player when moving right or left
             if (horizontalInput > 0.01f)
@@ -31,10 +33,14 @@ public class playerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && grounded)
                 Jump();
+           
+            if (isSliding && grounded)
+                Slide();
 
             // Set animator parameters
             anim.SetBool("isRun", horizontalInput != 0); // checks to see if horizontal input is zero or not
             anim.SetBool("isGrounded", grounded);
+            anim.SetBool("isSliding", isSliding);
         }
     }
 
@@ -43,6 +49,12 @@ public class playerMovement : MonoBehaviour
         body.velocity = new Vector2(body.velocity.x, speed / 1.25f); // Transforms on Y axis
         anim.SetTrigger("Jump");
         grounded = false;
+    }
+
+    private void Slide()
+    {
+        body.velocity = new Vector2(body.velocity.x * 1.25f, body.velocity.y);
+        anim.SetTrigger("slide");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
