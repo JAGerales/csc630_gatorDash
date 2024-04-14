@@ -26,7 +26,7 @@ public class timer : MonoBehaviour
             currentTime = 0;
             runningTimer = false;
             timerText.color = Color.red;
-            timerText.text = "0:00";
+            timerText.text = "00:00";
             // implement game over
         }
         else
