@@ -6,12 +6,15 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
+    private Vector3 respawnPoint;
+    public GameObject fallDetector;
 
     private void Awake()
     {
         // Reference Rigidbody2D Component and animator Component
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        respawnPoint = transform.position;
     }
 
     private void Update()
@@ -41,6 +44,8 @@ public class playerMovement : MonoBehaviour
             anim.SetBool("isRun", horizontalInput != 0); // checks to see if horizontal input is zero or not
             anim.SetBool("isGrounded", grounded);
             anim.SetBool("isSliding", isSliding);
+
+            fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y);
         }
     }
 
@@ -62,6 +67,13 @@ public class playerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "fallDetector")
+        {
+            transform.position = respawnPoint;
         }
     }
 }
