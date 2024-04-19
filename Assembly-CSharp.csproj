@@ -48,8 +48,8 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\playerMovement.cs" />
-     <Compile Include="Assets\Scripts\door.cs" />
      <Compile Include="Assets\Scripts\cameraController.cs" />
+     <Compile Include="Assets\Scripts\gameOverScreen.cs" />
      <Compile Include="Assets\Scripts\timer.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
