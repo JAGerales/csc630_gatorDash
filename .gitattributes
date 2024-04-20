@@ -1,0 +1,34 @@
+# Set default behavior for text files
+* text=auto
+
+# Unity specific files
+*.meta merge=unity-meta
+*.unity text merge=unityyamlmerge eol=lf
+*.prefab text merge=unityyamlmerge eol=lf
+*.asset text merge=unityyamlmerge eol=lf
+*.anim text merge=unityyamlmerge eol=lf
+*.controller text merge=unityyamlmerge eol=lf
+*.physicMaterial text merge=unityyamlmerge eol=lf
+*.physicsMaterial2D text merge=unityyamlmerge eol=lf
+*.mat text merge=unityyamlmerge eol=lf
+*.mask text merge=unityyamlmerge eol=lf
+*.overrideController text merge=unityyamlmerge eol=lf
+*.spriteatlas text merge=unityyamlmerge eol=lf
+*.tmx text merge=unityyamlmerge eol=lf
+*.asset text merge=unityyamlmerge eol=lf
+*.prefab text merge=unityyamlmerge eol=lf
+
+# Unity ignores
+Library/
+Temp/
+Obj/
+Build/
+*.csproj
+*.pidb
+*.sln
+*.user
+*.unityproj
+*.pdb
+*.mdb
+*.mp4
+*.gpstate
