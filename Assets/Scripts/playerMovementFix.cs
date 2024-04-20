@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class playerMovementFix : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D body;
@@ -33,7 +33,7 @@ public class playerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && grounded)
                 Jump();
-           
+
             if (isSliding && grounded)
                 Slide();
 
