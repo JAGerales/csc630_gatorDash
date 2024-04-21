@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class playerMovementFix : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D body;
@@ -36,7 +36,7 @@ public class playerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && grounded)
                 Jump();
-           
+
             if (isSliding && grounded)
                 Slide();
 
@@ -69,6 +69,7 @@ public class playerMovement : MonoBehaviour
             grounded = true;
         }
     }
+<<<<<<< HEAD:Assets/Scripts/playerMovement.cs
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "fallDetector")
@@ -77,3 +78,6 @@ public class playerMovement : MonoBehaviour
         }
     }
 }
+=======
+}
+>>>>>>> features:Assets/Scripts/playerMovementFix.cs
