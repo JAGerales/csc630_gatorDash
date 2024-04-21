@@ -69,7 +69,6 @@ public class playerMovementFix : MonoBehaviour
             grounded = true;
         }
     }
-<<<<<<< HEAD:Assets/Scripts/playerMovement.cs
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "fallDetector")
@@ -78,6 +77,3 @@ public class playerMovementFix : MonoBehaviour
         }
     }
 }
-=======
-}
->>>>>>> features:Assets/Scripts/playerMovementFix.cs
