@@ -49,4 +49,12 @@ public class timer : MonoBehaviour
         else
             gameOver.setup(10);
     }
+
+    public void addTime()
+    {
+        currentTime += 5.0f;
+        int minutes = Mathf.FloorToInt(currentTime / maxTime);
+        int seconds = Mathf.FloorToInt(currentTime % maxTime);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
 }
