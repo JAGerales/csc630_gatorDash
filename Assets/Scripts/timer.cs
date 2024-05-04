@@ -10,14 +10,15 @@ public class timer : MonoBehaviour
     public float currentTime;
     public float maxTime = 60;
     [SerializeField] TextMeshProUGUI timerText;
-    public gameOverScreen gameOver;
 
+    public gameManagerScript gameManager;
+
+    private bool isOver = false;
     // Start is called before the first frame update
     void Start()
     {
         currentTime = maxTime;
         runningTimer = true;
-        gameOver = new gameOverScreen();
     }
 
     // Update is called once per frame
@@ -44,10 +45,12 @@ public class timer : MonoBehaviour
 
     public void Gameover()
     {
-        if (gameOver == null)
-            Debug.Log(gameOver);
-        else
-            gameOver.setup(10);
+        if (currentTime == 0 && !isOver)
+        {
+            isOver = true;
+            gameManager.gameOver();
+            
+        }
     }
 
     public void addTime()

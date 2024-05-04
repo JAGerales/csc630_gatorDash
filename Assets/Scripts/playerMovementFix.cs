@@ -8,6 +8,7 @@ public class playerMovementFix : MonoBehaviour
     private bool grounded;
     private Vector3 respawnPoint;
     public GameObject fallDetector;
+    [SerializeField] private AudioClip jumpSound;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class playerMovementFix : MonoBehaviour
     private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, speed / 1.25f); // Transforms on Y axis
+        soundManager.instance.PlaySound(jumpSound);
         anim.SetTrigger("Jump");
         grounded = false;
     }
