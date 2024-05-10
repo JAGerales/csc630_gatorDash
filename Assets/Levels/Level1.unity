@@ -3151,8 +3151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runningTimer: 1
-  currentTime: 60
-  maxTime: 60
+  currentTime: 5
+  maxTime: 5
   timerText: {fileID: 795423379}
   gameManager: {fileID: 2107292785}
 --- !u!114 &1062441794
@@ -5455,7 +5455,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1847384875
 Transform:
@@ -5465,8 +5465,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847384871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.16, y: -0.99, z: -55.01052}
-  m_LocalScale: {x: 0.010779189, y: 0.009129088, z: 1}
+  m_LocalPosition: {x: 6.1909, y: -0.9024, z: 0}
+  m_LocalScale: {x: 0.011555291, y: 0.011327373, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
