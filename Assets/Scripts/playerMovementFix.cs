@@ -10,6 +10,7 @@ public class playerMovementFix : MonoBehaviour
     public GameObject fallDetector;
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
+    [SerializeField] private AudioClip jumpSound;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class playerMovementFix : MonoBehaviour
     private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, speed / 1.25f); // Transforms on Y axis
+        soundManager.instance.PlaySound(jumpSound);
         anim.SetTrigger("Jump");
         grounded = false;
     }
