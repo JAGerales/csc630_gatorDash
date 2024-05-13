@@ -6,28 +6,31 @@ using UnityEngine.SceneManagement;
 public class gameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject PauseMenu;
+
+    public bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
+        PauseMenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    
+     void Update()
     {
-        if (gameOverUI.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
     }
+    
 
     public void gameOver()
     {
@@ -44,8 +47,24 @@ public class gameManagerScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    // game over
     public void quit()
     {
         Application.Quit();
     }
+
+    public void PauseGame()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
 }
