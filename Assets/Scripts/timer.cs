@@ -9,6 +9,7 @@ public class timer : MonoBehaviour
     public bool runningTimer;
     public float currentTime;
     public float maxTime = 60;
+    private float timeReversed = 0;
     [SerializeField] TextMeshProUGUI timerText;
 
     public gameManagerScript gameManager;
@@ -56,8 +57,14 @@ public class timer : MonoBehaviour
     public void addTime()
     {
         currentTime += 5.0f;
+        timeReversed += 5.0f;
         int minutes = Mathf.FloorToInt(currentTime / maxTime);
         int seconds = Mathf.FloorToInt(currentTime % maxTime);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public float returnReversedTime()
+    {
+        return timeReversed;
     }
 }

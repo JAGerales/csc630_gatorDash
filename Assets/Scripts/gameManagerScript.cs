@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject PauseMenu;
-
     public bool isPaused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,5 +68,4 @@ public class gameManagerScript : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
-
 }

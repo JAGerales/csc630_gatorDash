@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class playerMovementFix : MonoBehaviour
@@ -10,6 +11,9 @@ public class playerMovementFix : MonoBehaviour
     public GameObject fallDetector;
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
+    public GameObject victoryScreen;
+    [SerializeField] public timer gameTimer;
+    [SerializeField] public TextMeshProUGUI gameStat;
     [SerializeField] private AudioClip jumpSound;
 
     private void Awake()
@@ -83,7 +87,7 @@ public class playerMovementFix : MonoBehaviour
             grounded = true;
         }
     }
-    //this function is to set respawn points and works for checkpoints
+    //this function is to set respawn points, works for checkpoints, and checks for win condition
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "fallDetector")
@@ -93,6 +97,13 @@ public class playerMovementFix : MonoBehaviour
         else if (collision.tag == "checkPoint")
         {
             respawnPoint = transform.position;
+        }
+        if (collision.tag == "win")
+        {
+            Time.timeScale = 0f;
+            victoryScreen.SetActive(true);
+            float timeSaved = gameTimer.returnReversedTime();
+            gameStat.text += timeSaved.ToString("F2") + " seconds!";
         }
     }
 }
