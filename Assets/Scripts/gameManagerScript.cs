@@ -9,7 +9,13 @@ public class gameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject PauseMenu;
+    public GameObject victoryScreen;
+    public GameObject backgroundMusic;
+    public GameObject ParticleSystem;
+    public TextMeshProUGUI statText;
+    timer gameTime;
     public bool isPaused;
+    [SerializeField] private AudioClip victorySound;
 
     // Start is called before the first frame update
     void Start()
@@ -67,5 +73,19 @@ public class gameManagerScript : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void victory()
+    {
+        backgroundMusic.SetActive(false);
+        var pS = GetComponent<ParticleSystem>();
+        if (pS != null)
+        {
+            pS.Play();
+        }
+        soundManager.instance.PlaySound(victorySound);
+        float timeReversed = gameTime.returnReversedTime();
+        statText.text += timeReversed;
+        victoryScreen.SetActive(true);
     }
 }
