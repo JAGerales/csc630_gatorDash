@@ -22,10 +22,12 @@ public class cameraController : MonoBehaviour
     }
 
 
-    private void Update()
+    private void Update() // follow player
     {
-        //Follow player
+        // desired position of camera
         transform.position = new Vector3(player.position.x + lookAhead, player.position.y, transform.position.z);
+
+        // Linearly interpolates lookAhead based on player movement for smooth camera follow
         lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
     }
 

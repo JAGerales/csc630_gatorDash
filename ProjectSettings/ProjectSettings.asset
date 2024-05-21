@@ -639,8 +639,8 @@ PlayerSettings:
   cloudProjectId: 41f91bbe-0af6-4519-8bef-081b07e492c3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: platformer_test
-  organizationId: unity_160ab5531384c2bd1753
+  projectName: csc630_platformer
+  organizationId: csc630_group8
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0
